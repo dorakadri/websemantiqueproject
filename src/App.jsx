@@ -9,6 +9,7 @@ import Eventpage from './page/Eventpage'
 import Association from './page/Association'
 import PostDetails from './page/PostDetails'
 import Reclamations from "./page/Reclamations";
+import Donations from './page/Donations';
 
 function App() {
 
@@ -21,18 +22,19 @@ function App() {
         element={
           <div className="flex h-screen">
             <Sidebar />
-            {/* Main Content */}
+   
             <div className="flex-1  flex flex-col">
               <Navbar />
               <div className="flex-1 px-6 py-3 overflow-scroll">
                 <Routes>
                   <Route index path="home" element={<Homepage />} />
-                  <Route index path="Events" element={<Eventpage />} />
+                  <Route  path="donations" element={<Donations />} />
+                  <Route  path="Events" element={<Eventpage />} />
 
 
-                  <Route index path="Association" element={<Association />} />
-                  <Route index path="post/:id" element={<PostDetails />} />
-                  <Route index path="reclamations" element={<Reclamations />} />
+                  <Route  path="Association" element={<Association />} />
+                  <Route  path="post/:id" element={<PostDetails />} />
+                  <Route  path="reclamations" element={<Reclamations />} />
                 </Routes>
               </div>
             </div>
