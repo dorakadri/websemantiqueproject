@@ -40,7 +40,13 @@ export const navLinks = [
     link: "./Donations",
  icon:<AiFillBehanceCircle/>,
 
-  }
+  },
+  {
+    id: "Forums",
+    title: "Forums",
+    link: "./forums",
+    icon: <CgFeed />,
+  },
 
 ];
 

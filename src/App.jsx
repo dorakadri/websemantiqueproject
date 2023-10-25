@@ -10,7 +10,7 @@ import Association from './page/Association'
 import PostDetails from './page/PostDetails'
 import Reclamations from "./page/Reclamations";
 import Donations from './page/Donations';
-
+import Forums from './page/Forums'
 function App() {
 
 
@@ -28,6 +28,7 @@ function App() {
               <div className="flex-1 px-6 py-3 overflow-scroll">
                 <Routes>
                   <Route index path="home" element={<Homepage />} />
+                  <Route index path="forums" element={<Forums />} />
                   <Route  path="donations" element={<Donations />} />
                   <Route  path="Events" element={<Eventpage />} />
 
