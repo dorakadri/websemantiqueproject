@@ -4,6 +4,12 @@ import {FiBarChart} from 'react-icons/fi'
 import  {MdPublish} from 'react-icons/md'
 import {CgFeed} from 'react-icons/cg'
 import {AiOutlineSchedule} from 'react-icons/ai'
+
+import {AiFillBehanceCircle} from 'react-icons/ai'
+
+
+
+
 export const navLinks = [
 
 
@@ -44,7 +50,12 @@ export const navLinks = [
    
     },
     {
-      
+ 
+      id: "Donations",
+      title: "Donations",
+      link: "./Donations",
+   icon:<AiFillBehanceCircle/>,
+
     }
   ];
 
