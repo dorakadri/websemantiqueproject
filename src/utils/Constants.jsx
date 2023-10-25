@@ -37,9 +37,9 @@ export const navLinks = [
 
     },
     {
-      id: "Schedule",
-      title: "Schedule",
-      link: "./Schedule",
+      id: "Association",
+      title: "Association",
+      link: "./Association",
    icon:<AiOutlineSchedule/>,
    
     },
