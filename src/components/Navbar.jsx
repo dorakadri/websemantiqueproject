@@ -53,13 +53,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="items-center gap-7  w-full md:flex md:w-auto ">
-          <button
-            type="button"
-            className="px-4 py-2 text-base font-medium text-center inline-flex items-center text-white bg-[#2563EB] opacity-100 rounded-lg hover:bg-blue-800 "
-          >
-            <AiOutlinePlus />
-            Invite
-          </button>
+     
     
           <div className="cursor-pointer">
             <IoNotificationsOutline className="w-18 h-18" />
