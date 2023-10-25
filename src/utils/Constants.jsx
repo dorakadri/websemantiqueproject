@@ -4,6 +4,7 @@ import {FiBarChart} from 'react-icons/fi'
 import  {MdPublish} from 'react-icons/md'
 import {CgFeed} from 'react-icons/cg'
 import {AiOutlineSchedule} from 'react-icons/ai'
+
 export const navLinks = [
 
 
@@ -21,6 +22,12 @@ export const navLinks = [
       link: "./Analytics",
     icon:<FiBarChart/>,
   
+    },
+    {
+      id: "Forums",
+      title: "Forums",
+      link: "./forums",
+      icon: <CgFeed />,
     },
     {
       id: "Publish",
