@@ -36,12 +36,12 @@ export const navLinks = [
     icon: <CgFeed />,
   },
   {
-    id: "Schedule",
-    title: "Schedule",
-    link: "./Schedule",
+    id: "Association",
+    title: "Association",
+    link: "./Association",
     icon: <AiOutlineSchedule />,
   },
-  {},
+
 ];
 
 
