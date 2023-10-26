@@ -11,7 +11,7 @@ import {CiLocationOn, CiPhone} from "react-icons/ci"
     return (
       <Card className="w-96">
         <CardHeader floated={false} className="h-80">
-          <img src="https://www.terre-asile-tunisie.org/images/Logos_associations_accompagn%C3%A9es_-_PAAIP/ATEDE.jpg" alt="profile-picture" />
+          <img src="https://jamaity.org/wp-content/uploads/2015/01/%D8%AA%D9%88%D9%86%D8%B3-%D8%A7%D9%84%D8%AE%D9%8A%D8%B1%D9%8A%D8%A9-%D9%85%D8%AF%D9%86%D9%8A%D9%86.jpg" alt="profile-picture" />
         </CardHeader>
         <CardBody className="text-center">
           <Typography variant="h4" color="blue-gray" className="mb-2">
