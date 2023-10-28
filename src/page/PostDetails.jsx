@@ -1,10 +1,51 @@
 import { Button, Drawer, IconButton, Typography } from '@material-tailwind/react';
 import React from 'react'
-
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 function PostDetails() {
+    const [posts, setPosts] = useState({});
+    const [owner, setowner] = useState({});
+    const [taker, settaker] = useState({});
+    const { id } = useParams();
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response1 = await axios.get('http://localhost:8005/SpringMVC/annonce/Posts/' + id);
+            const initialData = response1.data;
+      
+            if (Array.isArray(initialData) && initialData.length > 0) {
+              const post = initialData[0];
+              setPosts(post);
+       console.log(post.advertisedBy)
+              if (post.advertisedBy) {
+         
+                const response2 = await axios.get('http://localhost:8005/SpringMVC/annonce/exchanger/' + post.advertisedBy);
+                const secondData = response2.data;
+            
+                setowner(...secondData);
+           
+              }
+      
+              if (post.exchanger) {
+                const response3 = await axios.get('http://localhost:8005/SpringMVC/annonce/exchanger/' + post.exchanger);
+                console.log('http://localhost:8005/SpringMVC/annonce/exchanger/' + post.exchanger)
+                const thirdData = response3.data;
+                settaker(...thirdData);
+              }
+      
+   
+            }
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
+      
+        fetchData();
+      }, []);
 
     const [openRight, setOpenRight] = React.useState(false);
-
+    const isTaken = posts.taken && posts?.taken?.startsWith('true');
     const openDrawerRight = () => setOpenRight(true);
     const closeDrawerRight = () => setOpenRight(false);
   return (
@@ -20,8 +61,8 @@ function PostDetails() {
                     <select
                         className="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
                         <option>All</option>
-                        <option>Accepted</option>
-                        <option>declined</option>
+                        <option>taken</option>
+                        <option>not taken</option>
                     </select>
                     <div
                         className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -81,12 +122,12 @@ function PostDetails() {
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0 w-10 h-10">
                                         <img className="w-full h-full rounded-full"
-                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                            src= {  owner.profileimage}
                                             alt="" />
                                     </div>
                                     <div className="ml-3">
                                         <p className="text-gray-900 whitespace-no-wrap">
-                                            Dorra kadri
+                                      {  owner.lastname}
                                         </p>
                                     </div>
                                 </div>
@@ -95,12 +136,12 @@ function PostDetails() {
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0 w-10 h-10">
                                         <img className="w-full h-full rounded-full"
-                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                            src={   taker.profileimage}
                                             alt="" />
                                     </div>
                                     <div className="ml-3">
                                         <p className="text-gray-900 whitespace-no-wrap">
-                                            eya khechine
+                                        {  taker.lastname}
                                         </p>
                                     </div>
                                 </div>
@@ -115,7 +156,7 @@ function PostDetails() {
                      
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p className="text-gray-900 whitespace-no-wrap">
-                                    Jan 21, 2020
+                                {posts.date}
                                 </p>
                             </td>
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -123,7 +164,7 @@ function PostDetails() {
                                     className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                     <span aria-hidden
                                         className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                    <span className="relative">Accepted</span>
+                                    <span className="relative">{isTaken ? 'taken' : 'nottaken'}</span>
                                 </span>
                             </td>
 
