@@ -7,7 +7,21 @@ import {
     Tooltip,
   } from "@material-tailwind/react";
 import {CiLocationOn, CiPhone} from "react-icons/ci"
-  export function AssociationCards() {
+  import PropTypes from 'prop-types';
+
+  export function AssociationCards({ data }) {
+    // your code here
+  
+  AssociationCards.propTypes = {
+    data: PropTypes.object,
+  };
+
+
+
+    if (!data) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <Card className="w-96">
         <CardHeader floated={false} className="h-80">
@@ -15,12 +29,12 @@ import {CiLocationOn, CiPhone} from "react-icons/ci"
         </CardHeader>
         <CardBody className="text-center">
           <Typography variant="h4" color="blue-gray" className="mb-2">
-          ASSOCIATION TUNISIENNE DE L’EDUCATION ET DES DROITS DE L’ENFANT 
+            {data.Association_name}
           </Typography>
           <div className="flex items-center gap-3 px-8  bg-white rounded-3xl shadow-main">
                    <CiLocationOn/>
                         <p className="font-extrabold text-dark-grey-900">Location</p>
-                        <p className="text-base leading-7 text-dark-grey-600">18 Rue Egypte, 1002
+                        <p className="text-base leading-7 text-dark-grey-600">{data.Association_adress}
 </p>
                       
                         </div>
@@ -28,14 +42,15 @@ import {CiLocationOn, CiPhone} from "react-icons/ci"
                         <div className="flex items-center gap-3 px-8  bg-white rounded-3xl shadow-main">
                    <CiPhone/>
                         <p className="font-extrabold text-dark-grey-900">Phone number</p>
-                        <p className="text-base leading-7 text-dark-grey-600">22345435
+                        <p className="text-base leading-7 text-dark-grey-600">{data.phonenum}
 </p>
+
                       
+
+
                         </div>
                         <hr className="pb-2"/>
-                        <p>Association tunisienne de défense des droits de lenfant, créée en novembre 2011, a pour objectif la protection et la défense des droits de l'enfant et la fourniture d'une assistance directe ou indirecte à l'enfant malheureux ou en danger.
-
-</p>
+                        <p>{data.Associationdescription}</p>
         </CardBody>
         <CardFooter className="flex justify-center gap-7 pt-2">
           <Tooltip content="Like">
@@ -74,4 +89,4 @@ import {CiLocationOn, CiPhone} from "react-icons/ci"
         </CardFooter>
       </Card>
     );
-  }
+    }
