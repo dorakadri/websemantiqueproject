@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Chip, Typography } from "@material-tailwind/react";
 import axios from "axios";
-const TABLE_HEAD = ["content",];
+const TABLE_HEAD = [" responses content"," associated reclamation",];
 
 function Reponses() {
   const [reponses, setReponses] = useState([]);
@@ -9,7 +9,7 @@ function Reponses() {
   useEffect(() => {
     // Make an HTTP GET request to your API endpoint
     axios
-      .get("http://localhost:8005/SpringMVC/troc/reponse")
+      .get("http://localhost:8005/api/troc/reponse")
       .then((response) => {
         // Update the state with the data received from the API
         setReponses(response.data);
@@ -54,6 +54,15 @@ function Reponses() {
                     className="font-normal"
                   >
                     {reponse.content}
+                  </Typography>
+                </td>
+                <td className={classes}>
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal"
+                  >
+                    {reponse.reclamation.content}
                   </Typography>
                 </td>
               </tr>

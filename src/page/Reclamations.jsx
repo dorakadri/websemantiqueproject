@@ -9,7 +9,7 @@ function Reclamations() {
   useEffect(() => {
     // Make an HTTP GET request to your API endpoint
     axios
-      .get("http://localhost:8005/SpringMVC/troc/reclamation")
+      .get("http://localhost:8005/api/troc/reclamation")
       .then((response) => {
         // Update the state with the data received from the API
         setReclamations(response.data);
