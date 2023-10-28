@@ -30,6 +30,12 @@ export const navLinks = [
     icon: <CgFeed />,
   },
   {
+    id: "Reponses",
+    title: "Reponses",
+    link: "./reponses",
+    icon: <CgFeed />,
+  },
+  {
     id: "Posts",
     title: "Posts",
     link: "./Posts",

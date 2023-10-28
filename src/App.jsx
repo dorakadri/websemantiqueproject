@@ -5,6 +5,8 @@ import { Sidebar } from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Homepage from './page/Homepage'
 import Reclamations from "./page/Reclamations";
+import Reponses from "./page/Reponses";
+
 
 function App() {
 
@@ -24,6 +26,7 @@ function App() {
                 <Routes>
                   <Route index path="home" element={<Homepage />} />
                   <Route index path="reclamations" element={<Reclamations />} />
+                  <Route index path="reponses" element={<Reponses />} />
                 </Routes>
               </div>
             </div>

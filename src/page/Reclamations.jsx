@@ -1,21 +1,24 @@
-import { Card, Typography } from "@material-tailwind/react";
+import React, { useState, useEffect } from "react";
+import { Card, Chip,Typography } from "@material-tailwind/react";
+import axios from "axios";
+const TABLE_HEAD = ["content", "status", "ResponseContent"];
 
-const TABLE_HEAD = ["title", "description", "status", ""];
+function Reclamations() {
+  const [reclamations, setReclamations] = useState([]);
 
-const TABLE_ROWS = [
-  {
-    title: "reclamation1",
-    description: "reclamation desc",
-    status: "not_treated",
-  },
-  {
-    title: "reclamation2 ",
-    description: "reclamation222",
-    status: "not_treated",
-  },
-];
+  useEffect(() => {
+    // Make an HTTP GET request to your API endpoint
+    axios
+      .get("http://localhost:8005/SpringMVC/troc/reclamation")
+      .then((response) => {
+        // Update the state with the data received from the API
+        setReclamations(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []); // The empty array [] ensures that the effect runs once when the component mounts.
 
- function Reclamations() {
   return (
     <Card className="h-full w-full overflow-scroll">
       <table className="w-full min-w-max table-auto text-left">
@@ -38,20 +41,37 @@ const TABLE_ROWS = [
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ title, description, status }, index) => {
-            const isLast = index === TABLE_ROWS.length - 1;
+          {reclamations.map((reclamation, index) => {
+            const isLast = index === reclamations.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
             return (
-              <tr key={title}>
+              <tr key={index}>
                 <td className={classes}>
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {title}
+                    {reclamation.content}
                   </Typography>
+                </td>
+
+                <td className={classes}>
+                  <div className="w-max">
+                    <Chip
+                      size="sm"
+                      variant="ghost"
+                      value={reclamation.status}
+                      color={
+                        reclamation.status === "1"
+                          ? "green"
+                          : reclamation.status === "0"
+                          ? "amber"
+                          : "red"
+                      }
+                    />
+                  </div>
                 </td>
                 <td className={classes}>
                   <Typography
@@ -59,19 +79,25 @@ const TABLE_ROWS = [
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {description}
+                    {reclamation.hasResponseContent}
                   </Typography>
                 </td>
                 <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    {status}
-                  </Typography>
+                  <div className="w-max">
+                    <Chip
+                      size="sm"
+                      variant="ghost"
+                      value={status}
+                      color={
+                        status === "paid"
+                          ? "green"
+                          : status === "pending"
+                          ? "amber"
+                          : "red"
+                      }
+                    />
+                  </div>
                 </td>
-              
               </tr>
             );
           })}
@@ -81,4 +107,4 @@ const TABLE_ROWS = [
   );
 }
 
-export default Reclamations
+export default Reclamations;
