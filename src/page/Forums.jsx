@@ -1,21 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Forumpost } from '../components/Forumpost'
+import axios from 'axios';
 function Forums() {
-    const [openRight, setOpenRight] = useState(false);
+  const [forums, setForums] = useState([]);
 
-    const openDrawerRight = () => setOpenRight(true);
-    const closeDrawerRight = () => setOpenRight(false);
+  useEffect(() => {
+
+    axios.get('http://localhost:8005/SpringMVC/troc/forum')
+      .then((response) => {
+       console.log(response.data);
+       setForums(response.data);
+      })
+      .catch((error) => {
+
+        console.error('Error:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+
+    axios.get('http://localhost:8005/SpringMVC/troc/comment')
+      .then((response) => {
+       console.log(response.data);
+       setForums(response.data);
+      })
+      .catch((error) => {
+
+        console.error('Error:', error);
+      });
+  }, []);
 
     return (
      
-  <div >
+<section className="py-10">
+
+<div >
+
+     {
+forums.map((e,i )=> (
+<Forumpost key={i} data={e}  />
+))
+     }
 
 
-<Forumpost/>
-
-
- 
 </div>
+</section>
 
   
     );
