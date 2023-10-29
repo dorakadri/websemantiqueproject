@@ -22,7 +22,7 @@ function Forums() {
     return (
      
 <section className="py-10">
-
+ 
 <div >
 
      {
