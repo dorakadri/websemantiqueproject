@@ -17,18 +17,7 @@ function Forums() {
       });
   }, []);
 
-  useEffect(() => {
 
-    axios.get('http://localhost:8005/SpringMVC/troc/comment')
-      .then((response) => {
-       console.log(response.data);
-       setForums(response.data);
-      })
-      .catch((error) => {
-
-        console.error('Error:', error);
-      });
-  }, []);
 
     return (
      
