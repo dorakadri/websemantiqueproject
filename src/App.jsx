@@ -10,6 +10,7 @@ import Association from './page/Association'
 import PostDetails from './page/PostDetails'
 import Reclamations from "./page/Reclamations";
 import Donations from './page/Donations';
+import Charity from './page/Charity';
 import Forums from './page/Forums'
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                   <Route index path="home" element={<Homepage />} />
                   <Route index path="forums" element={<Forums />} />
                   <Route  path="donations" element={<Donations />} />
+                  <Route  path="charity" element={<Charity />} />
                   <Route  path="Events" element={<Eventpage />} />
 
 

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { DonationsCard } from '../components/DonationsCard';
+import { CharityCard } from '../components/CharityCard';
 
-function Donations() {
-  const [donations, setDonations] = useState([]);
+function Charity() {
+  const [charitys, setCharitys] = useState([]);
   
   useEffect(() => {
-    fetch("http://localhost:8005/SpringMVC/troc/donations")
+    fetch("http://localhost:8005/SpringMVC/troc/charityevents")
       .then((response) => response.json())
       .then((data) => {
-        setDonations(data);
+        setCharitys(data);
         console.log(data);
       })
       .catch((error) => {
@@ -19,12 +19,12 @@ function Donations() {
   return (
     <div className="grid"> 
       
-        {donations.map((donation, index) => (
-          <DonationsCard key={index} data={donation} />
+        {charitys.map((charity, index) => (
+          <CharityCard key={index} data={charity} />
         ))}
      
      </div>
   );
         }
 
-export default Donations;
+export default Charity;
