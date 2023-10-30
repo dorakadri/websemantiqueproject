@@ -5,6 +5,7 @@ import { Sidebar } from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Homepage from './page/Homepage'
 import PostDetails from './page/PostDetails'
+import Profile from './page/Profile'
 
 function App() {
 
@@ -25,8 +26,10 @@ function App() {
                 <Navbar />
                 <div className="flex-1 px-6 py-3 overflow-scroll">
                   <Routes>
-                  <Route index path="home" element={<Homepage />} />
+                  <Route index path="/" element={<Homepage />} />
                   <Route index path="post/:id" element={<PostDetails />} />
+                  <Route index path="userprofile/:id" element={<Profile/>} />
+                  
                   </Routes>
                 </div>
               </div>

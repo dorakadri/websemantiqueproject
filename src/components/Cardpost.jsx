@@ -5,10 +5,36 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
   export function Cardpost({prop}) {
     const isTaken = prop.taken && prop?.taken?.startsWith('true');
-
+console.log(prop)
     return (
       <Card className="w-full max-w-[26rem] shadow-lg">
+     <CardHeader
+        color="transparent"
+        floated={false}
+        shadow={false}
+        className=" flex items-center gap-4 pt-0 "
+        
+      >
+        <Avatar
+          size="lg"
+          variant="circular"
+          src= {prop?.userinfo?.profileimage}
+          alt="tania andrew"
+          
+        />
+  
+          <div className="flex items-center justify-between">
+            <Typography variant="h5" color="blue-gray">
+            {prop?.userinfo?.lastname}
+            </Typography>
+        
+     
+        <Button variant="text">
+        <Link to={`/userprofile/${prop?.userinfo?.user_id}`}>   see profile</Link>
+       </Button>
    
+        </div>
+             </CardHeader>
       <CardHeader floated={false} color="blue-gray">
         <img
           src={prop.image}

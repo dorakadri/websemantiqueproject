@@ -43,7 +43,9 @@ function PostDetails() {
       
         fetchData();
       }, []);
-
+console.log(posts)
+console.log(owner)
+console.log(taker)
     const [openRight, setOpenRight] = React.useState(false);
     const isTaken = posts.taken && posts?.taken?.startsWith('true');
     const openDrawerRight = () => setOpenRight(true);
@@ -101,6 +103,7 @@ function PostDetails() {
                                 className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                item /service to exchange
                             </th>
+                         
                             <th
                                 className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                 Created at
@@ -149,7 +152,7 @@ function PostDetails() {
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <div className=" w-20 h-20 flex justify-center items-center ">
                                     <img className="w-full h-full "
-                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                            src={posts.exchangeimage}
                                             alt="" />
                                     </div>
                             </td>
@@ -159,6 +162,7 @@ function PostDetails() {
                                 {posts.date}
                                 </p>
                             </td>
+                     
                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <span
                                     className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
@@ -212,9 +216,9 @@ function PostDetails() {
         </div>
         <div className="bg-white text-center rounded-md ">
 
-  <img className="w-20 h-20 object-cover rounded-full mx-auto shadow-lg" src="https://images.unsplash.com/photo-1611342799915-5dd9f1665d04?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="User avatar"/>
-  <p className="capitalize text-xl mt-1">essie walton</p>
-  <span className="flex items-center border rounded-full w-24 pr-2 justify-center mx-auto mt-2 mb-2"><div className="bg-green-400 rounded-full w-2.5 h-2.5 block mr-2"></div>Active</span>
+  <img className={"w-20 h-20 object-cover rounded-full mx-auto shadow-lg"} src={taker.profileimage} alt="User avatar"/>
+  <p className="capitalize text-xl mt-1">{taker.lastname}</p>
+  
   
 </div>
 <div className=" rounded-md  cursor-pointer">
@@ -222,10 +226,10 @@ function PostDetails() {
             item/service information 
           </Typography>
       <div>
-        <img src="https://media.ldlc.com/r1600/ld/products/00/05/82/02/LD0005820208_1.jpg" alt="" />
+        <img src={posts.exchangeimage} alt="" />
       </div>
       <div className="px-4 bg-white">
-        <h3 className="text-lg font-semibold text-gray-600">i would like to exchange your chair with a broken  mac book  </h3>
+        <h3 className="text-lg font-semibold text-gray-600">{posts.exchangedescription}</h3>
         <Button  className='w-full mt-2 '>Accept</Button>
         <Button  className='w-full mt-2'>decline</Button>
       </div>
