@@ -6,7 +6,7 @@ import {
     Typography,
     Tooltip,
   } from "@material-tailwind/react";
-import {CiLocationOn, CiPhone} from "react-icons/ci"
+import {CiLocationOn, CiPhone,CiMail} from "react-icons/ci"
   import PropTypes from 'prop-types';
 
   export function AssociationCards({ data }) {
@@ -25,7 +25,7 @@ import {CiLocationOn, CiPhone} from "react-icons/ci"
     return (
       <Card className="w-96">
         <CardHeader floated={false} className="h-80">
-          <img src="https://jamaity.org/wp-content/uploads/2015/01/%D8%AA%D9%88%D9%86%D8%B3-%D8%A7%D9%84%D8%AE%D9%8A%D8%B1%D9%8A%D8%A9-%D9%85%D8%AF%D9%86%D9%8A%D9%86.jpg" alt="profile-picture" />
+          <img src={data.profileimage} alt="profile-picture" />
         </CardHeader>
         <CardBody className="text-center">
           <Typography variant="h4" color="blue-gray" className="mb-2">
@@ -44,11 +44,21 @@ import {CiLocationOn, CiPhone} from "react-icons/ci"
                         <p className="font-extrabold text-dark-grey-900">Phone number</p>
                         <p className="text-base leading-7 text-dark-grey-600">{data.phonenum}
 </p>
+</div>
+
+<div className="flex items-center gap-3 px-8  bg-white rounded-3xl shadow-main">
+                   <CiMail/>
+                        <p className="font-extrabold text-dark-grey-900">Email</p>
+                        <p className="text-base leading-7 text-dark-grey-600">{data.email}
+</p>
+                      
+                        </div>
+
+
 
                       
 
 
-                        </div>
                         <hr className="pb-2"/>
                         <p>{data.Associationdescription}</p>
         </CardBody>
