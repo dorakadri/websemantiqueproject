@@ -5,6 +5,7 @@ import { Sidebar } from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Homepage from './page/Homepage'
 import Association from './page/Association'
+import Owners from './page/Owners'
 
 function App() {
 
@@ -28,6 +29,8 @@ function App() {
                   <Route index path="home" element={<Homepage />} />
 
                   <Route index path="Association" element={<Association />} />
+                  <Route index path="Owners" element={<Owners />} />
+
                   </Routes>
                 </div>
               </div>

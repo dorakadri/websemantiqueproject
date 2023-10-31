@@ -44,7 +44,10 @@ export const navLinks = [
    
     },
     {
-      
+      id: "Owners",
+      title: "Owners",
+      link: "./Owners",
+   icon:<AiOutlineSchedule/>,
     }
   ];
 
