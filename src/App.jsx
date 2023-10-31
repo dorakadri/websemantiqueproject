@@ -4,7 +4,8 @@ import './App.css'
 import { Sidebar } from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Homepage from './page/Homepage'
-import Reclamations from "./page/Reclamations";
+import ReclamationsPosts from "./page/ReclamationsPosts";
+import ReclamationsExchanges from "./page/ReclamationsExchanges";
 import Reponses from "./page/Reponses";
 
 
@@ -25,7 +26,8 @@ function App() {
               <div className="flex-1 px-6 py-3 overflow-scroll">
                 <Routes>
                   <Route index path="home" element={<Homepage />} />
-                  <Route index path="reclamations" element={<Reclamations />} />
+                  <Route index path="recposts" element={<ReclamationsPosts />} />
+                     <Route index path="recexchanges" element={<ReclamationsExchanges />} />
                   <Route index path="reponses" element={<Reponses />} />
                 </Routes>
               </div>
