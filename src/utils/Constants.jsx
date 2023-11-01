@@ -47,6 +47,12 @@ export const navLinks = [
     link: "./forums",
     icon: <CgFeed />,
   },
+  {
+    id: "Owners",
+    title: "Owners",
+    link: "./Owners",
+ icon:<AiOutlineSchedule/>,
+  }
 
 ];
 
