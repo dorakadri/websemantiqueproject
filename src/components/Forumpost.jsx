@@ -4,7 +4,7 @@ import axios from 'axios';
   export function Forumpost({data}) {
     return (
 <div className="bg-white shadow-md  rounded-lg m-auto">
-      <div className="flex flex-row px-2 py-3 m-auto">
+      <div className="flex flex-row px-2 py-3 mx-3">	   
         <div className="w-auto h-auto rounded-full border-2 border-green-500">
           <img
             className="w-12 h-12 object-cover rounded-full shadow cursor-pointer"

@@ -7,9 +7,9 @@ function Forums() {
   
   useEffect(() => {
 
-   let  apiUrl="http://localhost:8005/SpringMVC/troc/forum"
+   let  apiUrl="http://localhost:8005/api/troc/forum"
     if (searchTitle) {
-      apiUrl = `http://localhost:8005/SpringMVC/troc/forumsearch?title=${searchTitle}`;
+      apiUrl = `http://localhost:8005/api/troc/forumsearch?title=${searchTitle}`;
 
   }
     axios.get(apiUrl)
@@ -28,7 +28,7 @@ function Forums() {
 
     return (
      
-<section className="py-10">
+<section className="max-w-lg mx-auto my-10 p-5">
 <div className=" mx-5 px-4 flex items-center justify-end md:items-center lg:justify-end ">
                     <input type="text" id="search-navbar"
                         className="block  p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500
