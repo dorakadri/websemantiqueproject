@@ -5,6 +5,7 @@ function Association() {
   const [associations, setAssociations] = useState([]);
 
   useEffect(() => {
+    
     fetch("http://localhost:8005/SpringMVC/troc/associations")
       .then((response) => response.json())
       .then((data) => {
