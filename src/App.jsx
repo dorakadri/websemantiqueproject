@@ -10,7 +10,9 @@ import PostDetails from './page/PostDetails'
 import Reclamations from "./page/Reclamations";
 import Donations from './page/Donations';
 import Forums from './page/Forums';
-import Owners from './page/Owners'
+import Owners from './page/Owners';
+import Charity from './page/Charity';
+
 import OwnerAssociationDetail from './components/OwnerAssociationDetail'
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
                   <Route index path="home" element={<Homepage />} />
                   <Route index path="forums" element={<Forums />} />
                   <Route  path="donations" element={<Donations />} />
+                  <Route  path="charity" element={<Charity />} />
                   <Route  path="Events" element={<Eventpage />} />
                   <Route index path="Association" element={<Association />} />
                   <Route index path="Owners" element={<Owners />} />

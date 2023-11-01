@@ -6,7 +6,7 @@ import {
 } from "@material-tailwind/react";
 import PropTypes from 'prop-types';
 
-export function DonationsCard({ data }) {
+export function CharityCard({ data }) {
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -18,48 +18,72 @@ export function DonationsCard({ data }) {
           <tr>
             <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
               <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-                Donor
+              Organizer
               </Typography>
             </th>
             <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
               <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-                Amount
+               Participants
               </Typography>
             </th>
             <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
               <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Date
+              Event_Date
               </Typography>
             </th>
             <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
               <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Note
+              Event_Name
               </Typography>
             </th>
+            
+            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
+              Donations_Received
+              </Typography>
+            </th>
+            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
+              Donations
+              </Typography>
+            </th>
+            
           </tr>
         </thead>
         <tbody>
           <tr>
             <td className="p-4">
               <Typography variant="small" color="blue-gray" className="font-normal">
-              {data.Donor}
+              {data.Organizer}
               </Typography>
             </td>
             <td className="p-4">
               <Typography variant="small" color="blue-gray" className="font-normal">
-                {data.Donation_Amount}
+              {data.Participants}
               </Typography>
             </td>
             <td className="p-4">
               <Typography variant="small" color="blue-gray" className="font-normal">
-                  {data.Donation_Date}
+              {data.Event_Date}
               </Typography>
             </td>
             <td className="p-4">
               <Typography variant="small" color="blue-gray" className="font-normal">
-                  {data.note}
+              {data.Event_Name}
               </Typography>
             </td>
+            <td className="p-4">
+              <Typography variant="small" color="blue-gray" className="font-normal">
+              {data.Donations_Received}
+              </Typography>
+            </td>
+            <td className="p-4">
+            <Typography variant="small" color="blue-gray" className="font-normal">
+              {data.Donor + ": " + data.Donation_Amount+ "$"}
+             </Typography>
+              </td>
+            
+
           </tr>
         </tbody>
       </table>
@@ -67,6 +91,6 @@ export function DonationsCard({ data }) {
   );
 }
 
-DonationsCard.propTypes = {
+CharityCard.propTypes = {
   data: PropTypes.object,
 };

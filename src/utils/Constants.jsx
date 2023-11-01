@@ -42,6 +42,14 @@ export const navLinks = [
 
   },
   {
+ 
+    id: "Charity events",
+    title: "Charity events",
+    link: "./Charity",
+ icon:<AiFillBehanceCircle/>,
+
+  },
+  {
     id: "Forums",
     title: "Forums",
     link: "./forums",
