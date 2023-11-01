@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Forumpost } from '../components/Forumpost'
+import axios from 'axios';
 function Forums() {
-    const [openRight, setOpenRight] = useState(false);
+  const [forums, setForums] = useState([]);
 
-    const openDrawerRight = () => setOpenRight(true);
-    const closeDrawerRight = () => setOpenRight(false);
+  useEffect(() => {
+
+    axios.get('http://localhost:8005/api/troc/forum')
+      .then((response) => {
+       console.log(response.data);
+       setForums(response.data);
+      })
+      .catch((error) => {
+
+        console.error('Error:', error);
+      });
+  }, []);
+
+
 
     return (
      
-  <div  className='flex flex-col justify-center items-center gap-2'>
-
-
-<Forumpost/>
-
-
+<section className="py-10">
  
+<div className='max-w-lg mx-auto my-10 p-5' >
+
+     {
+
+forums.map((e,i )=> (
+<Forumpost key={i} data={e}  />
+))
+     }
+
+
 </div>
+</section>
 
   
     );
