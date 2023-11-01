@@ -31,7 +31,7 @@ function Eventpage() {
 
         }
 
-        if (titleSearch && selectedLocation) {
+        if (titleSearch && selectedLocation || titleSearch) {
             apiUrl = `http://localhost:8005/SpringMVC/event/regularEvents/search/filter?title=${titleSearch}&location=${selectedLocation}`;
         }
 
