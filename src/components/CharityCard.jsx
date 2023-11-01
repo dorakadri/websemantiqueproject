@@ -12,44 +12,7 @@ export function CharityCard({ data }) {
   }
 
   return (
-    <Card className="h-full w-full overflow-scroll">
-      <table className="w-full min-w-max table-auto text-left">
-        <thead>
-          <tr>
-            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Organizer
-              </Typography>
-            </th>
-            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-               Participants
-              </Typography>
-            </th>
-            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Event_Date
-              </Typography>
-            </th>
-            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Event_Name
-              </Typography>
-            </th>
-            
-            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Donations_Received
-              </Typography>
-            </th>
-            <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-              <Typography variant="small" color="blue-gray" className="font-normal leading-none opacity-70">
-              Donations
-              </Typography>
-            </th>
-            
-          </tr>
-        </thead>
+   
         <tbody>
           <tr>
             <td className="p-4">
@@ -86,8 +49,7 @@ export function CharityCard({ data }) {
 
           </tr>
         </tbody>
-      </table>
-    </Card>
+    
   );
 }
 
