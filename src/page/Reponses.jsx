@@ -1,21 +1,24 @@
-import { Card, Typography } from "@material-tailwind/react";
+import React, { useState, useEffect } from "react";
+import { Card, Chip, Typography } from "@material-tailwind/react";
+import axios from "axios";
+const TABLE_HEAD = [" responses content"," associated reclamation",];
 
-const TABLE_HEAD = ["title", "description", "status", ""];
+function Reponses() {
+  const [reponses, setReponses] = useState([]);
 
-const TABLE_ROWS = [
-  {
-    title: "reclamation1",
-    description: "reclamation desc",
-    status: "not_treated",
-  },
-  {
-    title: "reclamation2 ",
-    description: "reclamation222",
-    status: "not_treated",
-  },
-];
+  useEffect(() => {
+    // Make an HTTP GET request to your API endpoint
+    axios
+      .get("http://localhost:8005/api/troc/reponse")
+      .then((response) => {
+        // Update the state with the data received from the API
+        setReponses(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []); // The empty array [] ensures that the effect runs once when the component mounts.
 
- function Reclamations() {
   return (
     <Card className="h-full w-full overflow-scroll">
       <table className="w-full min-w-max table-auto text-left">
@@ -38,19 +41,19 @@ const TABLE_ROWS = [
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ title, description, status }, index) => {
-            const isLast = index === TABLE_ROWS.length - 1;
+          {reponses.map((reponse, index) => {
+            const isLast = index === reponses.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
             return (
-              <tr key={title}>
+              <tr key={index}>
                 <td className={classes}>
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {title}
+                    {reponse.content}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -59,19 +62,9 @@ const TABLE_ROWS = [
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {description}
+                    {reponse.reclamation.content}
                   </Typography>
                 </td>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                  >
-                    {status}
-                  </Typography>
-                </td>
-              
               </tr>
             );
           })}
@@ -81,4 +74,4 @@ const TABLE_ROWS = [
   );
 }
 
-export default Reclamations
+export default Reponses;

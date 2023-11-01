@@ -7,7 +7,9 @@ import Homepage from './page/Homepage'
 import Eventpage from './page/Eventpage'
 import Association from './page/Association'
 import PostDetails from './page/PostDetails'
-import Reclamations from "./page/Reclamations";
+import ReclamationsPosts from "./page/ReclamationsPosts";
+import ReclamationsExchanges from "./page/ReclamationsExchanges";
+import Reponses from "./page/Reponses";
 import Donations from './page/Donations';
 import Forums from './page/Forums';
 import Owners from './page/Owners';
@@ -39,7 +41,9 @@ function App() {
                   <Route index path="Owners" element={<Owners />} />
                   <Route index path="/owner-detail/:lastName" element={<OwnerAssociationDetail/>} />
                   <Route  path="post/:id" element={<PostDetails />} />
-                  <Route  path="reclamations" element={<Reclamations />} />
+                  <Route index path="recposts" element={<ReclamationsPosts />} />
+                     <Route index path="recexchanges" element={<ReclamationsExchanges />} />
+                  <Route index path="reponses" element={<Reponses />} />
                 </Routes>
               </div>
             </div>

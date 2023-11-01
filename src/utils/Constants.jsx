@@ -14,9 +14,21 @@ export const navLinks = [
   },
  
   {
-    id: "Reclamations",
-    title: "Reclamations",
-    link: "./reclamations",
+    id: "Recposts",
+    title: "Posts claims",
+    link: "./recposts",
+    icon: <CgFeed />,
+  },
+   {
+    id: "Recexchanges",
+    title: "Exchanges claims",
+    link: "./recexchanges",
+    icon: <CgFeed />,
+  },
+  {
+    id: "Responses",
+    title: "Responses",
+    link: "./reponses",
     icon: <CgFeed />,
   },
 
