@@ -14,7 +14,7 @@ import Donations from './page/Donations';
 import Forums from './page/Forums';
 import Owners from './page/Owners';
 import Charity from './page/Charity';
-
+import Profile from './page/Profile'
 import OwnerAssociationDetail from './components/OwnerAssociationDetail'
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
               <Navbar />
               <div className="flex-1 px-6 py-3 overflow-scroll">
                 <Routes>
-                  <Route index path="home" element={<Homepage />} />
+                <Route index path="/" element={<Homepage />} />
                   <Route index path="forums" element={<Forums />} />
                   <Route  path="donations" element={<Donations />} />
                   <Route  path="charity" element={<Charity />} />
@@ -41,6 +41,7 @@ function App() {
                   <Route index path="Owners" element={<Owners />} />
                   <Route index path="/owner-detail/:lastName" element={<OwnerAssociationDetail/>} />
                   <Route  path="post/:id" element={<PostDetails />} />
+                  <Route index path="userprofile/:id" element={<Profile/>} />
                   <Route index path="recposts" element={<ReclamationsPosts />} />
                      <Route index path="recexchanges" element={<ReclamationsExchanges />} />
                   <Route index path="reponses" element={<Reponses />} />

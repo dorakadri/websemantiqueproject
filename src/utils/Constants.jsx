@@ -9,7 +9,7 @@ export const navLinks = [
   {
     id: "Feed",
     title: "Feed",
-    link: "./home",
+    link: "./",
     icon: <RxDashboard />,
   },
  
