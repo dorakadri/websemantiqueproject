@@ -49,6 +49,7 @@ export const navLinks = [
       link: "./Owners",
    icon:<AiOutlineSchedule/>,
     }
+   
   ];
 
 

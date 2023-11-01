@@ -8,11 +8,13 @@ import {
   } from "@material-tailwind/react";
   import PropTypes from 'prop-types';
 
-  export function OwnersCards({ data }) {
+  export function OwnersCards({ data, onClick}) {
     // your code here
   
   OwnersCards.propTypes = {
     data: PropTypes.object,
+    onClick: PropTypes.func,
+    
   };
 
 
@@ -22,7 +24,7 @@ import {
     }
 
     return (
-      <Card className="w-96">
+      <Card className="w-96" onClick={onClick}>
         <CardHeader floated={false} className="h-80">
           <img src={data.profileimage} alt="profile-picture" />
         </CardHeader>
